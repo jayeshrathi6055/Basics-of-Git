@@ -1,0 +1,183 @@
+Change directory
+cd C:/Users/user/my_project
+
+Initialize directory in git
+git init
+
+Add in git
+git add *.c
+git add LICENSE
+
+Commit in git
+git commit -m 'Initial project version'
+
+If you want to get an copy of an existing repository in github
+git clone https://github.com/libgit2/libgit2
+
+If you want a specific copy of an existing repository in github
+git clone https://github.com/libgit2/libgit2 mylibgit
+
+Checking the Status of Your Files
+git status
+
+Want to change commit file
+vim filename or code filename
+
+Want status in short
+git status -s
+
+Want to check what you write in your file
+cat filename
+
+Want to ignore some files 
+code .gitignore               // write filename in .gitignore
+
+Methods to write in .gitignore files
+# ----> For comments
+*.a----> ignore all .a files
+!lib.a----> but do track lib.a, even though you're ignoring .a files above
+/TODO----> only ignore the TODO file in the current directory, not subdir/TODO
+build/----> ignore all files in any directory named build
+doc/*.txt----> ignore doc/notes.txt, but not doc/server/arch.txt
+doc/**/*.pdf----> ignore all .pdf files in the doc/ directory and any of its subdirectories
+
+Want to check which file is modify
+git diff          //It’s important to note that git diff by itself doesn’t show all changes made since your last commit — only changes that are still unstaged. If you’ve staged all of your changes, git diff will give you no output.
+git diff --staged
+git diff --cached
+
+Want to remove files 
+rm filename
+
+Want to remove file from staging area
+git rm --cached filename
+
+Rename any file or folder
+git mv "filename" "change filename"
+
+Want to check all changes 
+git log
+git log -p       // It shows the difference in each commit
+git log --stat   // want to see some abbreviated stats for each commit
+git log --pretty=oneline   //one line information
+git log --pretty=format:"%h - %an, %ar : %s"   // change format
+git log --pretty=format:"%h %s" --graph  
+git log --since=2.weeks          // Limiting log output      
+
+All formats(63 line)
+%H----> Commit hash
+%h----> Abbreviated commit hash
+%T----> Tree hash
+%t----> Abbreviated tree hash
+%P----> Parent hashes
+%p----> Abbreviated parent hashes
+%an----> Author name
+%ae----> Author email
+%ad----> Author date (format respects the --date=option)
+%ar----> Author date, relative
+%cn----> Committer name
+%ce----> Committer email
+%cd----> Committer date
+%cr----> Committer date, relative
+%s----> Subject
+
+All formats(64 line)
+-p----> Show the patch introduced with each commit.
+--stat----> Show statistics for files modified in each commit.
+--shortstat----> Display only the changed/insertions/deletions line from the --stat command.
+--name-only----> Show the list of files modified after the commit information.
+--name-status----> Show the list of files affected with added/modified/deleted information as well.
+--abbrev-commit----> Show only the first few characters of the SHA-1 checksum instead of all 40.
+--relative-date----> Display the date in a relative format (for example, “2 weeks ago”) instead of
+using the full date format.
+--graph----> Display an ASCII graph of the branch and merge history beside the log output.
+--pretty----> Show commits in an alternate format. Options include oneline, short, full,
+fuller, and format (where you specify your own format).
+--oneline----> Shorthand for --pretty=oneline --abbrev-commit used together.
+
+Limit log outputs
+-<n>----> Show only the last n commits
+--since, --after----> Limit the commits to those made after the specified date.
+--until, --before----> Limit the commits to those made before the specified date.
+--author----> Only show commits in which the author entry matches the
+specified string.
+--committer----> Only show commits in which the committer entry matches the specified string.
+--grep----> Only show commits with a commit message containing the string
+-S----> Only show commits adding or removing code matching the string
+
+Want to change a file and then commit
+git add filename
+git commit --amend
+
+Want to convert modified file to unmodified file
+git checkout filename
+
+Steps to upload file on github
+git clone url      // https://github.com/jayeshrathi6055/learn-git.git
+cd repositoryname  // learn-git
+git remote
+move upload file to repository   // e.txt
+git remote add filename url    // e.txt , https://github.com/jayeshrathi6055/learn-git.git  
+git fetch filename             // e.txt
+git add filename               // e.txt
+git commit -m "What are you upload and why"
+git push filename branchname    // e.txt , master
+
+Renaming and Removing Remotes
+git remote mv beforefilename afterfilename
+git remote rm filename
+
+Tagging a file(Remember file must be staged)
+git tag -a v1.0 -m "my version 1.4"   // It will tag on last commit file
+git tag -a v1.1 commitnumber    // 9c27fdd348fa022f93041e2e7b41c7e547e98e8e (for specific file)
+
+Check Whatever version you tag
+git tag
+
+list of tags
+git tag -l "v1*"
+
+Want to show any tag
+git show v1.1
+
+Light weighted tag
+git tag v1.1-lw
+
+Want to delete tag
+git tag -d v1.1-lw	
+
+Creating a new branch
+git branch branchname
+
+Switch between branches
+git checkout branchname
+
+Switch to a new branch
+git checkout -b branchname
+
+Merge another branch
+git merge branchname
+
+Want to delete branch
+git branch -d branchname
+
+Remove conflicts during merging
+git mergetool
+
+Want to see all the branches
+git branch
+
+Want to see the last commit in each branch
+git branch -v
+
+Want to see which branches are already merged
+git branch --merged
+
+Want to see which branches are not merged
+git branch --no-merged
+
+ you can take all the changes that were committed on one branch and replay them on a different branch
+ git rebase branchname
+
+ Replay a specific work
+ git rebase branchname topicname
