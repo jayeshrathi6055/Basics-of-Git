@@ -113,15 +113,12 @@ Want to convert modified file to unmodified file
 git checkout filename
 
 Steps to upload file on github
-git clone url      // https://github.com/jayeshrathi6055/learn-git.git
-cd repositoryname  // learn-git
-git remote
-move upload file to repository   // e.txt
-git remote add filename url    // e.txt , https://github.com/jayeshrathi6055/learn-git.git  
-git fetch filename             // e.txt
-git add filename               // e.txt
-git commit -m "What are you upload and why"
-git push filename branchname    // e.txt , master
+git init    // Initialize git repository
+git add .   // ready for staging area
+git commit -m "Description"  // Comfirmation of selection
+git status  // Just to see
+git remote add origin <ssh_url>  // Select repo on github
+git push origin <branch name>  // Upload all files
 
 Renaming and Removing Remotes
 git remote mv beforefilename afterfilename
