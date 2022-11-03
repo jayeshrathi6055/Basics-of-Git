@@ -178,3 +178,11 @@ git branch --no-merged
 
  Replay a specific work
  git rebase branchname topicname
+ 
+ Want to delete your last commit
+ git reset <secondLastCommitId>
+ 
+ Want to revert you file changes
+ git restore fileName
+ 
+ 
